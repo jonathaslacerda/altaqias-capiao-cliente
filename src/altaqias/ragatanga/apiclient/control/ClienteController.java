@@ -1,10 +1,13 @@
 package altaqias.ragatanga.apiclient.control;
 
+import java.security.NoSuchAlgorithmException;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import altaqias.ragatanga.apiclient.config.Conexao;
 import altaqias.ragatanga.apiclient.services.ClienteServicos;
+import altaqias.ragatanga.apiclient.utils.CryptUtils;
 import altaqias.ragatanga.apiclient.utils.ServicosUtils;
 import altaqias.ragatanga.model.Cliente;
 import altaqias.ragatanga.to.ClienteAutenticarRequest;
@@ -24,8 +27,9 @@ public class ClienteController {
 		return response;
 	}
 	
-	public static ClienteCadastrarResponse cadastrar(Cliente cliente) throws JsonSyntaxException {
+	public static ClienteCadastrarResponse cadastrar(Cliente cliente) throws JsonSyntaxException, NoSuchAlgorithmException {
 		Conexao conexao = new Conexao();
+		cliente.setSenha(CryptUtils.toMD5(cliente.getSenha()));
 		ClienteCadastrarRequest request = new ClienteCadastrarRequest();
 		request.setCliente(cliente);
 		String json = new Gson().toJson(request);
