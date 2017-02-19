@@ -17,6 +17,9 @@ public class Quest {
 	private Cliente criador;
 	
 	@Getter @Setter
+	private Integer maximoParticipantes;
+	
+	@Getter @Setter
 	private BigDecimal valor;
 	
 	@Getter @Setter
@@ -26,9 +29,9 @@ public class Quest {
 	private Destino destino;
 	
 	@Getter @Setter
-	private List<Servico> servicos;
+	private List<Despesa> despesas;
 	
 	public Quest(){
-		this.servicos = new ArrayList<Servico>();
+		this.despesas = new ArrayList<Despesa>();
 	}
 }
