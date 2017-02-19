@@ -20,8 +20,8 @@ public class Conexao {
 	public Conexao() {
 		super();
 		this.httpsAtivado = false;
-		this.enderecoIp = "localhost";
-//		this.enderecoIp = "192.168.1.112";
+//		this.enderecoIp = "localhost";
+		this.enderecoIp = "192.168.1.112";
 		this.porta = "8080";
 		this.metodoHttp = 0;
 	}

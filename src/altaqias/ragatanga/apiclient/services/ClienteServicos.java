@@ -18,6 +18,4 @@ public class ClienteServicos {
 		ClienteCadastrarResponse response = new Gson().fromJson(ConnectionUtils.sendRequest(ConnectionUtils.getConnection(https, ip, porta, ServicosUtils.URL_CLIENTE_CADASTRAR, metodo), json), ClienteCadastrarResponse.class);
 		return response;
 	}
-	
-	
 }

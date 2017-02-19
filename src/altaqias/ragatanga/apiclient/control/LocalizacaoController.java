@@ -21,7 +21,13 @@ import altaqias.ragatanga.to.ServicosResponse;
 public class LocalizacaoController {
 	public static PaisesResponse paises() throws JsonSyntaxException {
 		Conexao conexao = new Conexao();
-		PaisesResponse response = LocalizacaoServicos.paises(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), ServicosUtils.HTTP_METODO_GET, new String());
+		PaisesResponse response = LocalizacaoServicos.paises(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), ServicosUtils.HTTP_METODO_POST, new String());
+		return response;
+	}
+	
+	public static CidadesPorEstadoResponse cidades() throws JsonSyntaxException {
+		Conexao conexao = new Conexao();
+		CidadesPorEstadoResponse response = LocalizacaoServicos.cidades(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), ServicosUtils.HTTP_METODO_POST, new String());
 		return response;
 	}
 	

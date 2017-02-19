@@ -17,6 +17,11 @@ public class LocalizacaoServicos {
 		return response;
 	}
 	
+	public static CidadesPorEstadoResponse cidades(boolean https, String ip, String porta, int metodo, String json){
+		CidadesPorEstadoResponse response = new Gson().fromJson(ConnectionUtils.sendRequest(ConnectionUtils.getConnection(https, ip, porta, ServicosUtils.URL_LOCALIZACAO_CIDADES, metodo), json), CidadesPorEstadoResponse.class);
+		return response;
+	}
+	
 	public static EstadosPorPaisResponse estadosPorPais(boolean https, String ip, String porta, int metodo, String json){
 		EstadosPorPaisResponse response = new Gson().fromJson(ConnectionUtils.sendRequest(ConnectionUtils.getConnection(https, ip, porta, ServicosUtils.URL_LOCALIZACAO_ESTADOS_POR_PAIS, metodo), json), EstadosPorPaisResponse.class);
 		return response;
