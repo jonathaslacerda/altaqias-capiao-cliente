@@ -5,6 +5,7 @@ import com.google.gson.JsonSyntaxException;
 
 import altaqias.ragatanga.apiclient.config.Conexao;
 import altaqias.ragatanga.apiclient.services.ClienteServicos;
+import altaqias.ragatanga.apiclient.utils.ServicosUtils;
 import altaqias.ragatanga.model.Cliente;
 import altaqias.ragatanga.to.ClienteAutenticarRequest;
 import altaqias.ragatanga.to.ClienteAutenticarResponse;
@@ -19,7 +20,7 @@ public class ClienteController {
 		request.setEmail(email);
 		request.setSenha(senha);
 		String json = new Gson().toJson(request);
-		ClienteAutenticarResponse response = ClienteServicos.autenticar(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), 0, json);
+		ClienteAutenticarResponse response = ClienteServicos.autenticar(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), ServicosUtils.HTTP_METODO_GET, json);
 		return response;
 	}
 	
@@ -28,28 +29,7 @@ public class ClienteController {
 		ClienteCadastrarRequest request = new ClienteCadastrarRequest();
 		request.setCliente(cliente);
 		String json = new Gson().toJson(request);
-		ClienteCadastrarResponse response = ClienteServicos.cadastrar(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), 1, json);
+		ClienteCadastrarResponse response = ClienteServicos.cadastrar(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), ServicosUtils.HTTP_METODO_POST, json);
 		return response;
-	}
-	
-	public static void main(String[] args) {
-		try {
-//			Cliente cliente = new Cliente();
-//			cliente.setDocumento("05900547404");
-//			cliente.setEmail("jonathassl4@gmail.com");
-//			cliente.setNome("Jonathas Santos de Lacerda");
-//			cliente.setSenha("10321165");
-//			cliente.setTelefone("83996541508");
-//			cliente.setIdiomas("Portugues, Ingles, Espanhol");
-//			ClienteCadastrarResponse response2 = ClienteController.cadastrar(cliente);
-//			System.out.println(response2.getCliente().getId());
-
-			ClienteAutenticarResponse response = ClienteController.autenticar("jonathassl@gmail.com", "10321165");
-			System.out.println(response.getCliente().getNome());
-
-		} catch (JsonSyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }
