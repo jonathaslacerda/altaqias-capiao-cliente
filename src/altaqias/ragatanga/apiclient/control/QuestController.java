@@ -1,7 +1,6 @@
 package altaqias.ragatanga.apiclient.control;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 import altaqias.ragatanga.apiclient.config.Conexao;
@@ -26,8 +25,7 @@ public class QuestController {
 		Conexao conexao = new Conexao();
 		QuestCriarRequest request = new QuestCriarRequest();
 		request.setQuest(quest);
-		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-		String json = gson.toJson(request);
+		String json = new Gson().toJson(request);
 		QuestCriarResponse response = QuestServicos.criar(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), ServicosUtils.HTTP_METODO_POST, json);
 		return response;
 	}
@@ -37,8 +35,7 @@ public class QuestController {
 		QuestEntrarRequest request = new QuestEntrarRequest();
 		request.setIdCliente(clienteId);
 		request.setIdQuest(questId);
-		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-		String json = gson.toJson(request);
+		String json = new Gson().toJson(request);
 		QuestEntrarResponse response = QuestServicos.entrar(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), ServicosUtils.HTTP_METODO_POST, json);
 		return response;
 	}
