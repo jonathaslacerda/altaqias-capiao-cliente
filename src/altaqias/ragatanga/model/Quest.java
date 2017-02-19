@@ -17,7 +17,7 @@ public class Quest {
 	private Cliente criador;
 	
 	@Getter @Setter
-	private Integer maximoParticipantes;
+	private Integer maximoParticipantes; 
 	
 	@Getter @Setter
 	private BigDecimal valor;
