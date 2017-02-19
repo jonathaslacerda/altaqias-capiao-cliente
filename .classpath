@@ -11,6 +11,7 @@
 	<classpathentry kind="lib" path="lib/hibernate-ehcache-4.3.5.Final.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-entitymanager-4.3.5.Final.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.6.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
