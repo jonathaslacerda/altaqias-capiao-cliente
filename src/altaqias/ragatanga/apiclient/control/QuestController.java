@@ -18,7 +18,7 @@ public class QuestController {
 	
 	public static QuestUltimasResponse ultimas() throws JsonSyntaxException {
 		Conexao conexao = new Conexao();
-		QuestUltimasResponse response = QuestServicos.ultimas(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), ServicosUtils.HTTP_METODO_GET, new String());
+		QuestUltimasResponse response = QuestServicos.ultimas(conexao.getHttpsAtivado(), conexao.getEnderecoIp(), conexao.getPorta(), ServicosUtils.HTTP_METODO_POST, new String());
 		return response;
 	}
 	

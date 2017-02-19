@@ -2,11 +2,11 @@ package altaqias.ragatanga.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,8 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -67,7 +65,7 @@ public class Quest {
 	private List<Despesa> despesas;
 	
 	@Getter @Setter
-	@OneToMany(mappedBy="quest", orphanRemoval=true)
+	@OneToMany(mappedBy="quest", orphanRemoval=true, fetch=FetchType.EAGER)
 	@OrderBy(value="id")
 	@Cascade({CascadeType.ALL})
 	private List<Inscricao> inscricoes;
